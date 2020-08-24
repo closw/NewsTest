@@ -31,9 +31,9 @@ class NewsViewHolder(
                 title.text = data.article.title
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     description.text =
-                        Html.fromHtml(data.article.description, Html.FROM_HTML_MODE_COMPACT)
+                        Html.fromHtml(data.article.description?: "", Html.FROM_HTML_MODE_COMPACT)
                 } else {
-                    description.text = Html.fromHtml(data.article.description)
+                    description.text = Html.fromHtml(data.article.description?: "")
                 }
                 if (data.article.urlToImage != null) {
                     Glide.with(context)
